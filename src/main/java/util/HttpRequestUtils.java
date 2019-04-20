@@ -53,6 +53,22 @@ public class HttpRequestUtils {
         return getKeyValue(header, ": ");
     }
 
+    public static String parseResource(String header) {
+        String[] split = header.split(" ");
+        if (split.length < 2) {
+            return "";
+        }
+        return split[1];
+    }
+
+    public static String parseMethod(String header) {
+        String[] split = header.split(" ");
+        if (split.length < 1) {
+            return "";
+        }
+        return split[0];
+    }
+
     public static class Pair {
         String key;
         String value;
@@ -106,4 +122,6 @@ public class HttpRequestUtils {
             return "Pair [key=" + key + ", value=" + value + "]";
         }
     }
+
+
 }
